@@ -47,7 +47,6 @@ public class SnappingViewPoint : MonoBehaviour
         if ((diffAngle * 60) * Time.deltaTime >= snappingThreshold)
         {
             ActivateSnapping();
-            Debug.Log("ActivateSnapping");
         }
         previousEuler = transform.rotation.eulerAngles;
     }
