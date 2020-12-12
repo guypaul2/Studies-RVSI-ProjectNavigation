@@ -6,34 +6,31 @@ using UnityEngine.VFX.Utility;
 
 public class MakeFummeSpawn : MonoBehaviour
 {
-    ExposedProperty m_MyProperty;
+    ExposedProperty m_MyProperty_Size;
+    ExposedProperty m_MyProperty_Velocity_Y;
+
     VisualEffect m_VFX;
-    public Vector3 placeToPose;
+
     void Start()
     {
         m_VFX = GetComponent<VisualEffect>();
-        m_MyProperty = "Pos"; // Assign A string
+        m_MyProperty_Size = "Size"; // Assign A string
+        m_MyProperty_Velocity_Y = "Velocity_Y"; // Assign A string
     }
 
 
     public void SetFumeePose(string nbChoix)
     {
-        placeToPose = new Vector3(-10.0f, 0.0f, 35.0f);
 
         if (nbChoix == "1")
-        {
-            placeToPose = new Vector3(10.0f, 0.0f, 35.0f);
-            Debug.Log("new Vector3(10.0f, 0.0f, 35.0f)");
-
-
+        {//Mauvais
+            m_VFX.SetFloat(m_MyProperty_Velocity_Y, 2.0f);
+            m_VFX.SetFloat(m_MyProperty_Size, 3.0f);
         }
         else
-        {
-            placeToPose = new Vector3(0.0f, 0.0f, 35.0f);
-            Debug.Log("new Vector3(0.0f, 0.0f, 35.0f)");
-
+        {//Bon
+            m_VFX.SetFloat(m_MyProperty_Velocity_Y, 0.5f);
+            m_VFX.SetFloat(m_MyProperty_Size, 1.5f);
         }
-        m_VFX.SetVector3(m_MyProperty, placeToPose);
-        m_VFX.transform.position = placeToPose;
     }
 }
