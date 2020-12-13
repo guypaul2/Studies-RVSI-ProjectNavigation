@@ -24,8 +24,8 @@ public class MakeFummeSpawn : MonoBehaviour
 
         if (nbChoix == "1")
         {//Mauvais
-            m_VFX.SetFloat(m_MyProperty_Velocity_Y, 2.0f);
-            m_VFX.SetFloat(m_MyProperty_Size, 3.0f);
+            m_VFX.SetFloat(m_MyProperty_Velocity_Y, 2.5f);
+            m_VFX.SetFloat(m_MyProperty_Size, 3.5f);
         }
         else
         {//Bon
