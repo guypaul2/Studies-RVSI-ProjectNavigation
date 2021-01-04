@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 
 public class DeclancherEvent : MonoBehaviour
@@ -11,7 +12,9 @@ public class DeclancherEvent : MonoBehaviour
     public GameObject objEvent;
     public float distanceAffichage = 5;
     public GameObject questionPanel;
+    public Light directLight;
 
+    private float pasColor = 35.0f;
     public Button button1;
     public Button button2;
     [HideInInspector] public float impactCarbon = 0.0f;
@@ -45,18 +48,30 @@ public class DeclancherEvent : MonoBehaviour
 
     public void ButtonAnswer(string nbChoix)
     {
+        Color bc = directLight.color;
+        float bi = directLight.intensity;
 
         if (nbChoix == "1")
         {//Mauvais
             button1.enabled = false;
             button2.interactable = false;
             impactCarbon = imapctMauvaisChoix;
+            directLight.DOColor(new Color(bc.r - (pasColor*2.0f)/255.0f, bc.g - (pasColor) / 255.0f, bc.b - (pasColor * 2.0f) / 255.0f, bc.a), 2.0f);
+            directLight.DOIntensity(bi - 0.2f, 2.0f);
         }
         else
         {//Bon
             button2.enabled = false;
             button1.interactable = false;
             impactCarbon = imapctBonChoix;
+
+            if(bc.r != 1.0f)
+            {
+                directLight.DOColor(new Color(bc.r + (pasColor * 2.0f) / 255.0f, bc.g + (pasColor) / 255.0f, bc.b + (pasColor * 2.0f) / 255.0f, bc.a), 2.0f);
+                directLight.DOIntensity(bi + 0.2f, 2.0f);
+            }
         }
+
+        this.gameObject.transform.GetChild(0).DOScale(new Vector3(0, 0, 0), 1.0f);
     }
 }

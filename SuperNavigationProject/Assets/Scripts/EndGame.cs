@@ -48,7 +48,7 @@ public class EndGame : MonoBehaviour
     {
         txt.GetComponent<UnityEngine.UI.Text>().text = "Félicitation vous venez de terminer cette simulation. " +
             "Sur un maximum de 7380g de CO2 votre impact carbon de la journée a été de " + totalCarbon +"g de C02. " +
-            "Ce qui est égale à l'emmission d'un trajet de " + (int)((totalCarbon * 19.0f) / 1441.0f) + "km d'une voiture roulant à l'essence." ;
+            "Ce qui est égale à l'emmission de CO2 d'un trajet de " + (int)((totalCarbon * 19.0f) / 1441.0f) + "km d'une voiture roulant à l'essence." ;
 
         endPanel.SetActive(true);
 
