@@ -9,3 +9,5 @@ The goal of the project was to develop our first application in Virtual Reality 
 
 We decided to create a small scenario about the ecological matter in everyday life.
 
+![alt text](https://github.com/guypaul2/Studies-RVSI-ProjectNavigation/blob/main/ImageDemoNavigationVR.png?raw=true)
+
